@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Shree Somnath Roadlines</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .thank-you-container {
+            text-align: center;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            position: relative;
+            animation: iconPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .success-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gradient-2);
+            opacity: 0.3;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .success-icon i {
+            color: white;
+            font-size: 60px;
+            animation: checkmark 0.8s cubic-bezier(0.65, 0, 0.45, 1) 0.2s forwards;
+            transform: scale(0);
+        }
+
+        .thank-you-message {
+            margin: 2rem 0;
+            animation: messageSlide 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .thank-you-message h2 {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: titleGlow 2s ease-in-out infinite;
+        }
+
+        .thank-you-message p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .order-details {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: var(--border-radius-md);
+            margin: 2rem 0;
+            text-align: left;
+            box-shadow: var(--shadow-md);
+            animation: cardSlide 0.8s ease-out 0.6s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gradient-1);
+        }
+
+        .order-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .order-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .order-details ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            animation: listItemSlide 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .order-details ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            animation: arrowBounce 1s ease-in-out infinite;
+        }
+
+        .tracking-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+
+        .tracking-info i {
+            color: var(--primary-color);
+            font-size: 24px;
+            animation: truckMove 2s ease-in-out infinite;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease-out 1s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        @keyframes iconPop {
+            0% {
+                transform: scale(0);
+            }
+            60% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes checkmark {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes messageSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes listItemSlide {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+        }
+
+        @keyframes truckMove {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-color);
+            animation: confetti 5s ease-in-out infinite;
+        }
+
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 2rem 1rem;
+            }
+
+            .success-icon {
+                width: 100px;
+                height: 100px;
+            }
+
+            .thank-you-message h2 {
+                font-size: 2.2rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container glass">
+        <header>
+            <h1>Shree Somnath Roadlines</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="button"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="services.html" class="button"><i class="fas fa-truck"></i> Services</a></li>
+                    <li><a href="about.html" class="button"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="order.html" class="button"><i class="fas fa-clipboard-list"></i> Give Order</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="thank-you-container">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <div class="thank-you-message">
+                <h2>Thank You!</h2>
+                <p>Your order has been successfully submitted. Our team will review your request and get back to you shortly.</p>
+            </div>
+
+            <div class="order-details">
+                <h3>What's Next?</h3>
+                <ul class="stagger-children">
+                    <li>You will receive a confirmation email shortly</li>
+                    <li>Our team will review your request</li>
+                    <li>We will contact you with a detailed quote</li>
+                    <li>Once approved, we'll schedule your shipment</li>
+                </ul>
+            </div>
+
+            <div class="tracking-info">
+                <i class="fas fa-truck"></i>
+                <p>You can track your order status once it's processed</p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="index.html" class="btn btn-primary hover-lift">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="order.html" class="btn btn-secondary hover-lift">
+                    <i class="fas fa-plus"></i> New Order
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Shree Somnath Roadlines. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Create confetti effect
+        function createConfetti() {
+            const colors = ['#7d2ae8', '#6420b6', '#4CAF50', '#FFC107'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                document.body.appendChild(confetti);
+
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Add stagger animation to list items
+        document.querySelectorAll('.order-details li').forEach((item, index) => {
+            item.style.animationDelay = `${0.8 + (index * 0.2)}s`;
+        });
+
+        // Call confetti effect when page loads
+        window.onload = createConfetti;
+    </script>
+</body>
+</html>
